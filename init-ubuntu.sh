@@ -7,9 +7,18 @@
 # Created Time:  2015-12-12 18时00分07秒
 #############################################
 
-if [ $# -lt 2 ] then
+# make sure you have run those two commands:
+## sudo apt-get install git
+## https://github.com/pmars/linux-config.git
+
+# then you can run this script
+## bash linux-config/init-ubuntu.sh username password
+
+if [ $# -lt 2 ]; then
+    echo 'script need two params'
     echo 'please input username and password'
     exit
+fi
 
 user=$1
 pass=$2
@@ -17,8 +26,8 @@ pass=$2
 echo "username:"$user
 echo "password:"$pass
 
-exit
 # add user to sudoers
+# modify ubuntu start type
 sudo -i<<EOF
 $pass
 EOF
@@ -30,6 +39,7 @@ update-grub
 su $user
 cd
 
+# install packages
 sudo apt-get update
 sudo apt-get install -y openssh-server python-pip python-virtualenv vim git tmux sauce
 sudo mv .profile ../
@@ -38,12 +48,13 @@ sudo rm -rf .*
 sudo rm -rf .config
 virtualenv pyvirt
 
-wget 
-scp 182.92.172.215:/home/xingming/.bashrc ./
-scp 182.92.172.215:/home/xingming/.vimrc ./
-scp 182.92.172.215:/home/xingming/.dircolors ./
-scp 182.92.172.215:/home/xingming/.tmux.info ./
+# copy files
+git clone https://github.com/pmars/linux-config.git
+mv linux-config/.[a-z]* ./
 source .bashrc
+rm -rf linux-config
+
+# init ssh keys
 ssh-keygen -t rsa -P ''<<EOF
 
 EOF
@@ -51,3 +62,4 @@ EOF
 echo 'init over!'
 
 exit
+
