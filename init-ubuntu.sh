@@ -24,6 +24,8 @@ pass=$2
 echo "username:"$user
 echo "password:"$pass
 
+cd
+
 # add user to sudoers
 # modify ubuntu start type
 echo 'modify /etc/sudoers now'
@@ -35,11 +37,7 @@ echo $pass | sudo -S mv /tmp/sudoers /etc/sudoers
 echo 'modify /etc/default/grub now'
 cat /etc/default/grub | awk 'BEGIN{con="";}{gsub("quiet splash", "quiet splash text"); con=con""$0"\n";}END{print con;}' > /tmp/grub1
 sudo mv /tmp/grub1 /etc/default/grub
-update-grub
-
-echo 'back to '$user
-su $user
-cd
+sudo update-grub
 
 # install packages
 echo 'apt-get some packages'
