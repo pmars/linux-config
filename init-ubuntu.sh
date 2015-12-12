@@ -28,9 +28,7 @@ echo "password:"$pass
 
 # add user to sudoers
 # modify ubuntu start type
-sudo -i<<EOF
-$pass
-EOF
+sudo -i
 chmod 640 /etc/sudoers
 echo "$user ALL=(ALL)   NOPASSWD:   ALL" >> /etc/sudoers
 cat /etc/default/grub | awk 'BEGIN{con="";}{gsub("quiet splash", "quiet splash text"); con=con""$0"\n";}END{print con;}' > /etc/default/grub1
