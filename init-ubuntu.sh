@@ -8,7 +8,7 @@
 #############################################
 
 # make sure you have run those two commands:
-## sudo apt-get install git
+## sudo apt-get install -y git
 ## https://github.com/pmars/linux-config.git
 
 # then you can run this script

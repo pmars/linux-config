@@ -1,7 +1,8 @@
 # linux-config
 
-这里我共享了我的 `linux` 上的相关配置 (`vim`, `tmux`)
-希望对你有用
+这里我共享了我的 `linux` 上的相关配置 (`vim`, `tmux`)，希望对你有用
+
+更详细的初始化说明，请查看博客 [http://www.xiaoh.me/2015/12/12/ubuntu-init/](http://www.xiaoh.me/2015/12/12/ubuntu-init/)
 
 ---
 
@@ -17,12 +18,12 @@
 
 ###### Ubuntu Init
 
-我的 `Ubuntu` 版本为 `ubuntu-14.04-desktop-amd64.iso`，你可以到 [这里](http://pan.baidu.com/s/1i3YGBvZ) 下载。
+我的 `Ubuntu` 版本为 `ubuntu-14.04-desktop-amd64.iso`，你可以到 [http://pan.baidu.com/s/1i3YGBvZ](http://pan.baidu.com/s/1i3YGBvZ) 下载。
 
 安装完 `Ubuntu` 之后，你需要安装 `git`，之后将该项目复制到你的用户目录内，运行以下两条命令：
 
 ```
-sudo apt-get install git
+sudo apt-get install -y git
 git clone https://github.com/pmars/linux-config.git
 ```
 
