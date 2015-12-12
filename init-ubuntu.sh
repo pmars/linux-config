@@ -12,28 +12,29 @@
 ## https://github.com/pmars/linux-config.git
 
 # then you can run this script
-## bash linux-config/init-ubuntu.sh username
+## bash linux-config/init-ubuntu.sh username password
 
-if [ $# -lt 1 ]; then
-    echo 'script need your username'
+if [ $# -lt 2 ]; then
+    echo 'script need your username and password'
     exit
 fi
 
 user=$1
+pass=$2
 echo "username:"$user
+echo "password:"$pass
 
 # add user to sudoers
 # modify ubuntu start type
-echo 'sudo to root'
-sudo -i
-
-chmod 640 /etc/sudoers
 echo 'modify /etc/sudoers now'
-echo "$user ALL=(ALL)   NOPASSWD:   ALL" >> /etc/sudoers
+echo $pass | sudo -S chmod 640 /etc/sudoers
+cat /etc/sudoers > /tmp/sudoers
+echo "$user ALL=(ALL)   NOPASSWD:   ALL" >> /tmp/sudoers
+echo $pass | sudo -S mv /tmp/sudoers /etc/sudoers
 
 echo 'modify /etc/default/grub now'
-cat /etc/default/grub | awk 'BEGIN{con="";}{gsub("quiet splash", "quiet splash text"); con=con""$0"\n";}END{print con;}' > /etc/default/grub1
-mv /etc/default/grub1 /etc/default/grub
+cat /etc/default/grub | awk 'BEGIN{con="";}{gsub("quiet splash", "quiet splash text"); con=con""$0"\n";}END{print con;}' > /tmp/grub1
+sudo mv /tmp/grub1 /etc/default/grub
 update-grub
 
 echo 'back to '$user
