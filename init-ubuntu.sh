@@ -30,7 +30,7 @@ cd
 # modify ubuntu start type
 echo 'modify /etc/sudoers now'
 echo $pass | sudo -S chmod 640 /etc/sudoers
-cat /etc/sudoers > /tmp/sudoers
+echo $pass | sudo -S cat /etc/sudoers > /tmp/sudoers
 echo "$user ALL=(ALL)   NOPASSWD:   ALL" >> /tmp/sudoers
 echo $pass | sudo -S mv /tmp/sudoers /etc/sudoers
 
