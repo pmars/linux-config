@@ -33,6 +33,8 @@ echo $pass | sudo -S chmod 640 /etc/sudoers
 echo $pass | sudo -S cat /etc/sudoers > /tmp/sudoers
 echo "$user ALL=(ALL)   NOPASSWD:   ALL" >> /tmp/sudoers
 echo $pass | sudo -S mv /tmp/sudoers /etc/sudoers
+echo $pass | sudo -S chown root:root /etc/sudoers
+echo $pass | sudo -S chmod 640 /etc/sudoers
 
 echo 'modify /etc/default/grub now'
 cat /etc/default/grub | awk 'BEGIN{con="";}{gsub("quiet splash", "quiet splash text"); con=con""$0"\n";}END{print con;}' > /tmp/grub1
