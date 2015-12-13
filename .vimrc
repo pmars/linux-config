@@ -78,7 +78,7 @@ func SetTitle()
         call append(line(".")+2, "subtitle:   \"subtitle\"")
         call append(line(".")+3, "date:       ".strftime("%Y-%m-%d %H:%M:%S"))
         call append(line(".")+4, "author:     \"xiaoh\"")
-        call append(line(".")+5, "header-img: \"img/post-bg-.jpg\"")
+        call append(line(".")+5, "header-img: \"img/post-bg-default.jpg\"")
         call append(line(".")+6, "tags:")
         call append(line(".")+7, "    - tag")
         call append(line(".")+8, "\---")
@@ -87,3 +87,4 @@ func SetTitle()
 endfunc
 
 autocmd BufNewFile * normal G
+
