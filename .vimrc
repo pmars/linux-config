@@ -83,6 +83,14 @@ func SetTitle()
         call append(line(".")+7, "    - tag")
         call append(line(".")+8, "\---")
         call append(line(".")+9, "")
+        call append(line(".")+10, "> ")
+        call append(line(".")+11, "")
+        call append(line(".")+12, "\---")
+        call append(line(".")+13, "")
+        call append(line(".")+14, "\### 目录")
+        call append(line(".")+15, "")
+        call append(line(".")+16, "\---")
+        call append(line(".")+17, "")
     endif
 endfunc
 
