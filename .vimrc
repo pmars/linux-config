@@ -15,7 +15,6 @@ set ignorecase
 set helplang=cn            "帮助系统设置为中文
 set showcmd                "输入的命令显示出来，看的清楚些
 set foldenable             "允许折叠
-set foldmethod=syntax      "手动折叠
 set backspace=indent,eol,start
 set completeopt=preview,longest,menu
 set ruler                  "打开状态栏标尺
@@ -23,6 +22,12 @@ set expandtab
 "" set cursorline          "突出显示当前行
 
 set list listchars=tab:→\ ,trail:·
+
+filetype plugin on
+let g:pydiction_location = '/usr/share/vim/vim74/pydiction/complete-dict'
+let g:pydiction_menu_height = 10
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+set foldmethod=indent      "手动折叠
 
 colorscheme desert
 
@@ -44,7 +49,7 @@ func SetTitle()
         call append(line(".")+2, "\#############################################")
         call append(line(".")+3, "\# File Name: ".expand("%"))
         call append(line(".")+4, "\# Author: xiaoh")
-        call append(line(".")+5, "\# Mail: p.mars@163.com ")
+        call append(line(".")+5, "\# Mail: xiaoh@about.me ")
         call append(line(".")+6, "\# Created Time: ".strftime(" %Y-%m-%d %H:%M:%S"))
         call append(line(".")+7, "\#############################################")
         call append(line(".")+8, "")
@@ -64,7 +69,7 @@ func SetTitle()
         call append(line(".")+1, "\#############################################")
         call append(line(".")+2, "\# File Name: ".expand("%"))
         call append(line(".")+3, "\# Author: xiaoh")
-        call append(line(".")+4, "\# mail: p.mars@163.com")
+        call append(line(".")+4, "\# mail: xiaoh@about.me")
         call append(line(".")+5, "\# Created Time: ".strftime(" %Y-%m-%d %H:%M:%S"))
         call append(line(".")+6, "\#############################################")
         call append(line(".")+7, "")

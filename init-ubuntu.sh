@@ -52,6 +52,15 @@ sudo rm -rf *
 sudo rm -rf .*
 sudo rm -rf .config
 
+echo 'config vim'
+cd /usr/share/vim/vim74
+wget -O pydiction.zip http://www.vim.org/scripts/download_script.php?src_id=21842
+unzip pydiction.zip
+mv pydiction/after/ftplugin/python_pydiction.vim ./ftplugin/
+wget -O python_fold.vim http://www.vim.org/scripts/download_script.php?src_id=4431
+mv python_fold.vim plugin/
+cd -
+
 echo 'create virtual environment folder named pyvirt'
 virtualenv pyvirt
 
